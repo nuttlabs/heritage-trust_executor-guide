@@ -1,0 +1,572 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap");
+
+/* ========================================
+   The Canadian Executor's Guide - Styles
+   ======================================== */
+
+:root {
+  /* Colors */
+  --text: #353535;
+  --background: #ffffff;
+  --sidebar-bg: #f8fafb;
+  --sidebar-border: #eff1f2;
+  --hover-bg: #f0f0f0;
+  --table-border: #eff1f2;
+  --link-color: #327DA9;
+
+  /* Typography */
+  --body-font: Inter, system-ui, -apple-system, sans-serif;
+  --heading-serif-font: "Instrument Serif", Georgia, serif;
+  --heading-sans-font: Inter, sans-serif;
+  --base-font-size: 16px;
+  --base-line-height: 1.5;
+
+  /* Layout */
+  --sidebar-width: 288px;
+  --content-max-width: 650px;
+  --content-padding-desktop: 96px;
+  --content-padding-mobile: 24px;
+
+  /* Scrollbar */
+  --scrollbar-width: 15px;
+  --scrollbar-bg: #fafafa;
+  --scrollbar-thumb: #c1c1c1;
+}
+
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+html::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 8px;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1 {
+  font-family: var(--heading-serif-font);
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+h2 {
+  font-family: var(--heading-sans-font);
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.5em 0 0.5em;
+  color: var(--text);
+}
+
+h3 {
+  font-family: var(--heading-sans-font);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: normal;
+  margin: 1.2em 0 0.3em;
+  color: var(--text);
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+/* Bold-only paragraphs act as visual section breaks (document uses bold
+   instead of heading styles). Class added by build script. */
+article p.section-title {
+  margin-top: 1.5em;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Layout: Desktop (Sidebar + Content)
+   ======================================== */
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  font-weight: 400;
+  line-height: var(--base-line-height);
+  color: var(--text);
+  background: var(--background);
+  display: flex;
+  flex-direction: row;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding: 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--sidebar-border);
+  background: var(--hover-bg);
+  text-align: center;
+}
+
+.site-title {
+  display: block;
+  font-family: var(--heading-serif-font);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.site-title:hover {
+  text-decoration: none;
+  color: var(--text);
+  opacity: 1;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 0.375rem 1rem;
+  border-left: 3px solid transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--hover-bg);
+  text-decoration: none;
+}
+
+.sidebar-nav a.active {
+  border-left-color: #a9c29a;
+  font-weight: 500;
+}
+
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.heritage-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: #a9c29a;
+  border: none;
+  border-radius: 3px;
+  color: var(--text);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.heritage-cta:hover {
+  background-color: #97b586;
+  text-decoration: none;
+}
+
+.heritage-cta-icon {
+  height: 1.4em;
+  width: auto;
+}
+
+/* Main Content Area */
+main.content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 64px var(--content-padding-desktop) var(--content-padding-desktop);
+}
+
+article {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+article a {
+  color: #a9c29a;
+}
+
+article a:hover {
+  color: #8fb280;
+}
+
+/* Mobile Header (Hidden on Desktop) */
+.mobile-header {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* ========================================
+   Content Styles
+   ======================================== */
+
+/* Callout Boxes */
+.callout,
+.note,
+.tip {
+  background: var(--sidebar-bg);
+  border-radius: 3px;
+  padding: 1.7rem 1.7rem 1.7rem 1.4rem;
+  margin: 0.125rem 0 0.25rem;
+  border: none;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+}
+
+thead {
+  background: var(--sidebar-bg);
+}
+
+th,
+td {
+  padding: 1rem;
+  border: 1px solid var(--table-border);
+  text-align: left;
+}
+
+th {
+  font-weight: 500;
+  color: var(--text);
+}
+
+tbody tr:hover {
+  background: var(--sidebar-bg);
+}
+
+/* Blockquotes */
+blockquote {
+  font-family: var(--heading-serif-font);
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-style: normal;
+  border-left: 3px solid var(--text);
+  margin: 1.875rem 1rem;
+  padding: 0.1rem 0.9rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+  line-height: var(--base-line-height);
+}
+
+/* Dividers */
+hr {
+  border: none;
+  border-top: 1px solid var(--sidebar-border);
+  margin: 30px 0;
+}
+
+/* Code Blocks */
+pre {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 3px;
+  padding: 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+
+/* Inline Code */
+p code,
+li code {
+  background: var(--sidebar-bg);
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Images — scoped to article content so layout images aren't affected */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+article img {
+  margin: 1.5em 0;
+}
+
+/* Chapter Navigation (next chapter link) */
+.chapter-nav {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sidebar-border);
+  text-align: right;
+}
+
+.next-chapter {
+  font-family: var(--heading-serif-font);
+  font-size: 1.25rem;
+  color: var(--text);
+  opacity: 0.45;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.next-chapter:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.next-chapter-arrow {
+  font-family: Arial, sans-serif;
+}
+
+/* ========================================
+   Mobile Layout (< 768px)
+   ======================================== */
+
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  /* Show mobile header */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid var(--sidebar-border);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .mobile-title {
+    font-family: var(--heading-sans-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+  }
+
+  /* Hamburger Menu Button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Sidebar on Mobile */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: var(--sidebar-width);
+    height: calc(100vh - 60px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Content on Mobile */
+  main.content {
+    margin-left: 0;
+    padding: var(--content-padding-mobile);
+    max-width: none;
+  }
+
+  /* Adjust heading sizes for mobile */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  /* Adjust table on mobile */
+  table {
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  /* Reduce blockquote margin on mobile */
+  blockquote {
+    margin: 20px 8px;
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .mobile-header,
+  .sidebar,
+  .sidebar-overlay {
+    display: none;
+  }
+
+  main.content {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+

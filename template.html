@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{TITLE}} — The Canadian Executor's Guide</title>
+    <link rel="icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <!-- Mobile header with hamburger menu -->
+    <header class="mobile-header">
+      <button class="menu-toggle" aria-label="Toggle navigation" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="../index.html" class="mobile-title">The Canadian Executor's Guide</a>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-title">The Canadian Executor's Guide</a>
+      </div>
+      <div class="sidebar-nav">
+        {{NAV_ITEMS}}
+      </div>
+      <div class="sidebar-footer">
+        <a
+          href="https://heritagetrustcompany.ca/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="heritage-cta"
+        >
+          <img src="../images/favicon.png" alt="" class="heritage-cta-icon" />
+          Heritage Trust
+        </a>
+      </div>
+    </nav>
+
+    <!-- Overlay for mobile menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main content area -->
+    <main class="content">
+      <article>
+        {{CONTENT}}
+      </article>
+    </main>
+
+    <script>
+      // Mobile menu toggle functionality
+      (function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+        const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+        if (!menuToggle || !sidebar || !sidebarOverlay) {
+          return; // Exit if elements not found
+        }
+
+        // Toggle sidebar visibility
+        function toggleMenu() {
+          menuToggle.classList.toggle("active");
+          sidebar.classList.toggle("active");
+          sidebarOverlay.classList.toggle("active");
+        }
+
+        // Close menu when a link is clicked
+        function closeMenu() {
+          menuToggle.classList.remove("active");
+          sidebar.classList.remove("active");
+          sidebarOverlay.classList.remove("active");
+        }
+
+        // Event listeners
+        menuToggle.addEventListener("click", toggleMenu);
+        sidebarOverlay.addEventListener("click", closeMenu);
+
+        // Close menu when clicking on a nav link
+        const navLinks = sidebar.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        // Close menu on escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeMenu();
+          }
+        });
+
+        // Set active nav link based on current page
+        (function setActiveNav() {
+          const currentSlug = "{{SLUG}}";
+          if (!currentSlug) {
+            return; // Exit if no slug provided
+          }
+
+          const navLinks = sidebar.querySelectorAll(".sidebar-nav a");
+          navLinks.forEach((link) => {
+            // Remove any existing active class
+            link.classList.remove("active");
+
+            // Check if link href matches current slug (exact filename match)
+            const href = link.getAttribute("href");
+            if (href && href.endsWith(currentSlug + ".html")) {
+              link.classList.add("active");
+            }
+          });
+        })();
+      })();
+    </script>
+  </body>
+</html>
