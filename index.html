@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PXZHQ2RDT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3PXZHQ2RDT');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Canadian Executor's Guide</title>
@@ -53,7 +62,7 @@
         font-weight: 400;
         color: #353535;
         padding: 2px;
-        margin: 1.5rem 0 0 0;
+        margin: 2.5rem 0 0 0;
       }
 
       /* Welcome Section */
@@ -100,7 +109,8 @@
       .homepage-links {
         display: flex;
         justify-content: center;
-        gap: 3rem;
+        align-items: flex-start;
+        gap: 5.5rem;
         margin: 0.5rem 0 2rem 0;
       }
 
@@ -109,9 +119,10 @@
         flex-direction: column;
         align-items: center;
         text-decoration: none;
-        color: #353535;
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
+        color: #6b6b6b;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        font-style: italic;
         font-weight: 500;
         transition: opacity 0.2s ease;
       }
@@ -120,11 +131,23 @@
         opacity: 0.75;
       }
 
+      .homepage-link-image {
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+      }
+
       .homepage-link img {
         width: 140px;
         height: 140px;
         object-fit: contain;
-        margin-bottom: 0.75rem;
+      }
+
+      .homepage-link.templates img {
+        width: 116px;
+        height: 116px;
       }
 
       /* Disclaimer Callout */
@@ -174,12 +197,21 @@
         }
 
         .homepage-links {
-          gap: 1.5rem;
+          gap: 2.5rem;
+        }
+
+        .homepage-link-image {
+          height: 110px;
         }
 
         .homepage-link img {
           width: 110px;
           height: 110px;
+        }
+
+        .homepage-link.templates img {
+          width: 91px;
+          height: 91px;
         }
 
         .welcome-section h2 {
@@ -283,12 +315,16 @@
         <!-- Homepage Links -->
         <div class="homepage-links">
           <a href="https://a.co/d/0gOtalEV" class="homepage-link" target="_blank" rel="noopener noreferrer">
-            <img src="images/buy-book.png" alt="Buy the book" />
-            <span>Buy the book.</span>
+            <div class="homepage-link-image">
+              <img src="images/buy-book.png" alt="Buy the book" />
+            </div>
+            <span>Buy the book &rarr;</span>
           </a>
-          <a href="https://estate-organizer.ca/welcome/template-files" class="homepage-link" target="_blank" rel="noopener noreferrer">
-            <img src="images/maple.png" alt="Download the templates" />
-            <span>Download the templates.</span>
+          <a href="https://estate-organizer.ca/welcome/template-files" class="homepage-link templates" target="_blank" rel="noopener noreferrer">
+            <div class="homepage-link-image">
+              <img src="images/maple.png" alt="Download the templates" />
+            </div>
+            <span>Download the templates &rarr;</span>
           </a>
         </div>
 
