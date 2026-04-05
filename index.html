@@ -17,10 +17,9 @@
         max-width: none;
       }
 
-      /* Cover Banner + Icon wrapper */
+      /* Cover Banner wrapper */
       .cover-region {
         position: relative;
-        padding-bottom: 40px; /* space below cover for the icon to hang into */
       }
 
       .cover-banner {
@@ -34,20 +33,6 @@
         height: 100%;
         object-fit: cover;
         object-position: 50% 100%;
-      }
-
-      /* Maple leaf icon — center aligns with start of content text */
-      .page-icon {
-        position: absolute;
-        bottom: 0;
-        left: calc(50% - 350px - 52.5px);
-      }
-
-      .page-icon img {
-        width: 105px;
-        height: 105px;
-        object-fit: cover;
-        border-radius: 3px;
       }
 
       /* Inner content area — 700px centered, no horizontal padding */
@@ -69,17 +54,6 @@
         color: #353535;
         padding: 2px;
         margin: 1.5rem 0 0 0;
-      }
-
-      .hero blockquote {
-        font-family: "Instrument Serif", serif;
-        font-size: 1.8rem;
-        font-weight: 400;
-        font-style: italic;
-        margin: 30px 16px;
-        padding: 2px 14px;
-        border-left: 3px solid #353535;
-        color: #353535;
       }
 
       /* Welcome Section */
@@ -122,6 +96,37 @@
         margin: 2rem 0 2.5rem 0;
       }
 
+      /* Homepage Links */
+      .homepage-links {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 0.5rem 0 2rem 0;
+      }
+
+      .homepage-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #353535;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        transition: opacity 0.2s ease;
+      }
+
+      .homepage-link:hover {
+        opacity: 0.75;
+      }
+
+      .homepage-link img {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+        margin-bottom: 0.75rem;
+      }
+
       /* Disclaimer Callout */
       .disclaimer {
         background: #f8fafb;
@@ -150,10 +155,6 @@
 
       /* Mobile Adjustments */
       @media (max-width: 767px) {
-        .cover-region {
-          padding-bottom: 36px;
-        }
-
         .cover-banner {
           height: 160px;
         }
@@ -164,15 +165,6 @@
           transform-origin: 70% 100%;
         }
 
-        .page-icon {
-          left: 8px;
-        }
-
-        .page-icon img {
-          width: 76px;
-          height: 76px;
-        }
-
         .homepage-content {
           padding: 0 var(--content-padding-mobile) 32px;
         }
@@ -181,9 +173,13 @@
           font-size: 2.5rem;
         }
 
-        .hero blockquote {
-          font-size: 1.3rem;
-          margin: 20px 12px;
+        .homepage-links {
+          gap: 1.5rem;
+        }
+
+        .homepage-link img {
+          width: 110px;
+          height: 110px;
         }
 
         .welcome-section h2 {
@@ -260,9 +256,6 @@
         <div class="cover-banner">
           <img src="images/cover.png" alt="The Canadian Executor's Guide" />
         </div>
-        <div class="page-icon">
-          <img src="images/maple.png" alt="The Canadian Executor's Guide" />
-        </div>
       </div>
 
       <!-- Content — constrained width matching chapter pages -->
@@ -270,7 +263,6 @@
         <!-- Hero Section -->
         <section class="hero">
           <h1>The Canadian Executor's Guide</h1>
-          <blockquote>Effectively Managing an Estate: from the Funeral to the Final Distribution</blockquote>
         </section>
 
         <!-- Welcome Section -->
@@ -284,6 +276,20 @@
         <!-- Author Signature -->
         <div class="author-signature">
           <img src="images/headshot.png" alt="Nicole Garton" />
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Homepage Links -->
+        <div class="homepage-links">
+          <a href="https://a.co/d/0gOtalEV" class="homepage-link" target="_blank" rel="noopener noreferrer">
+            <img src="images/buy-book.png" alt="Buy the book" />
+            <span>Buy the book.</span>
+          </a>
+          <a href="https://estate-organizer.ca/welcome/template-files" class="homepage-link" target="_blank" rel="noopener noreferrer">
+            <img src="images/maple.png" alt="Download the templates" />
+            <span>Download the templates.</span>
+          </a>
         </div>
 
         <hr class="divider" />
