@@ -1,0 +1,345 @@
+/*
+ * ------------------------------------ \\
+ * ------------------------------------ //
+ * Contents
+ * ------------------------------------ \\
+ * ------------------------------------ //
+ * Typography
+ * Page Header
+ * Main Menu
+ * Guide Sections
+ * Notion Blocks
+ * Site Footer
+ * Landing Page
+ * Welcome Page
+ * ------------------------------------ \\
+ * ------------------------------------ //
+*/
+
+:root {
+    --accent: #CC252B;    
+}
+
+/* 
+ * ------------------------------------ \\
+ * Typography
+ * ------------------------------------ //
+*/
+
+@media screen and (max-width: 767px) {
+
+    h1.notion-header__title {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    h1.notion-header__title {
+        margin-bottom: 36px;
+    }
+
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Typography
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Page Header
+ * ------------------------------------ //
+*/
+
+div.notion-header__cover.no-cover {
+    max-height: 50px;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Page Header
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Main Menu
+ * ------------------------------------ //
+*/
+
+#block-welcome-sections .notion-collection-group__section-header:not(.no-border),
+#block-welcome-sections .notion-collection-list {
+    border-top:none;
+}
+
+#block-welcome-sections .notion-collection-group__section-header {
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#block-welcome-sections .notion-collection-group__section.open:not(.board) {
+    margin-bottom: 0;
+}
+
+
+#block-welcome-sections .notion-collection-list__item:hover {
+    background: none;
+}
+
+#block-welcome-sections .notion-pill {
+    background: none;
+    color: #787673;
+    opacity: .6;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-left: 0;
+}
+
+#block-welcome-sections .notion-collection-group__section:nth-of-type(2) .notion-collection-group__section-header {
+    padding-top: 0;
+}
+
+#block-welcome-sections .notion-property__title__icon-wrapper {
+    display: none;
+}
+
+@media screen and (max-width: 680px) {
+
+    #block-welcome-sections {
+        margin-top: 30px;
+        padding-top: 36px;
+        border-top: 1px solid #dcdad6;
+    }
+
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Main Menu
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Guide Sections
+ * ------------------------------------ //
+*/
+
+/* Page properties */
+.notion-page__properties {
+    display: none;
+}
+
+/* Inputs list: Cursor */
+.parent-page__sections .notion-collection-list__item,
+.parent-page__sections .notion-collection-list__item a {
+    cursor: default;
+}
+
+/* Inputs list: Item border */
+.parent-page__welcome .notion-collection-list__item .notion-property__title span {
+    border-bottom: none!important;
+}
+
+/* Next-section link */
+.parent-page__welcome article > .notion-column-list:last-child .notion-column {
+    width: 50%!important;
+    margin-inline-start: 0!important;
+}
+
+/* Next-section link */
+.parent-page__welcome article > .notion-column-list:last-child .notion-column:nth-of-type(2) {
+    text-align: right;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Guide Sections
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Notion Blocks
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------ \\
+ * Collections (Databases)
+ * ------------------ //
+*/
+
+.notion-collection-list .notion-collection-list__item {
+    cursor: default;
+    padding: 0;
+}
+
+.notion-collection-list .notion-collection-list__item:hover {
+    background-color: transparent;
+}
+
+.notion-collection-list__item .notion-property__title {
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width: 546px) {
+
+    .notion-collection-list .notion-collection-list__item {
+        border-bottom: none;
+        flex-direction: row;
+    }
+
+}
+
+/* 
+ * ------------------ \\
+ * End Collections (Databases)
+ * ------------------ //
+*/
+
+/* 
+ * ------------------ \\
+ * Text
+ * ------------------ //
+*/
+
+/* Paragraphs */
+p.notion-text__content {
+    padding: 6px 0;
+}
+
+/* 
+ * ------------------ \\
+ * End Text
+ * ------------------ //
+*/
+
+
+/* 
+ * ------------------ \\
+ * Callouts
+ * ------------------ //
+*/
+
+.notion-root .notion-callout.border {
+    padding: 22px 18px!important;
+}
+
+.notion-callout__content > span,
+.notion-callout__content > ul {
+    color: var(--color-text-default);
+}
+
+.notion-callout__content > span:first-child {
+    display: block;
+    font-size: 1.2em;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.notion-callout .notion-column {
+    padding: 0;
+}
+
+/* 
+ * ------------------ \\
+ * End Callouts
+ * ------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * End Notion Blocks
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Site Footer
+ * ------------------------------------ //
+*/
+
+footer.super-footer.stack {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 30px;
+}
+
+.super-footer__logo {
+    margin: 0;
+    height: auto;
+}
+
+.super-footer__logo span.super-footer__logo-text {
+    font-size: 13px!important;
+    font-weight: 300;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Site Footer
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Landing Page
+ * ------------------------------------ //
+*/
+
+.page__index .notion-header__cover {
+    height: auto;
+}
+
+.page__index .notion-header img {
+    position: relative!important;
+    object-fit: contain!important;
+    width: 50%;
+    max-width: 350px;
+    margin: 70px auto 10px;
+    display: block;
+}
+
+.page__index .notion-text {
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+.page__index .notion-link {
+    background-color: var(--accent);
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 100px;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Landing Page
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Welcome Page
+ * ------------------------------------ //
+*/
+
+.page__welcome .notion-header__content.max-width,
+.page__welcome .super-content.max-width {
+    max-width: 1100px;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Welcome Page
+ * ------------------------------------ //
+*/
